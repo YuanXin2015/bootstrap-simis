@@ -94,29 +94,20 @@ h2 {
   height:26px;
   width:1px;
   background:var(--copper)}
-.hero-description {
-  font-family:Georgia,serif;
-  font-style:italic;
-  font-size:18px;
-  color:var(--muted);
-  margin:24px 0 0}
 .tower-art {
   width:100%;
   height:auto;
-  margin-top:10px;
+  margin-top:32px;
   max-height:470px;
   object-fit:contain}
 .hero-bottom {
   display:flex;
-  justify-content:space-between;
+  justify-content:flex-end;
   align-items:center;
   border-bottom:1px solid var(--rule);
   padding:22px 0;
   font-size:14px;
   gap:24px}
-.hero-bottom p {
-  margin:0;
-  color:var(--muted)}
 .hero-bottom a {
   text-decoration:none}
 .hero-bottom a span {
@@ -367,16 +358,11 @@ footer a {
   flex-wrap:wrap}
 .hero-meta>span {
   height:18px}
-.hero-description {
-  font-size:15px;
-  margin-top:22px}
 .tower-art {
   margin-top:18px}
 .hero-bottom {
   font-size:12px;
   align-items:start}
-.hero-bottom p {
-  max-width:150px}
 .section {
   padding-block:48px}
 .two-column,.logistics-grid {
