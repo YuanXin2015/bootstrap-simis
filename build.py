@@ -4,6 +4,7 @@ from datetime import date
 from html import escape
 from urllib.parse import urlsplit, unquote
 import json
+import hashlib
 import shutil
 
 ROOT = Path(__file__).resolve().parent
@@ -43,6 +44,7 @@ def participant_html(p):
 
 def build():
     data=json.loads((ROOT/'workshop.json').read_text())
+    poster_version=hashlib.sha256((ROOT/'attachments/bootstrap-workshop-poster.pdf').read_bytes()).hexdigest()[:12]
     days=data['days']
     agenda=[];day_links=[]
     for i,day in enumerate(days):
@@ -69,7 +71,7 @@ def build():
 <section id="overview" class="section wrap two-column"><div><p class="eyebrow">01 / OVERVIEW</p><h2>Overview</h2></div><div class="prose">{paragraphs}<h3 class="eyebrow topics-heading">SCIENTIFIC THEMES</h3><ul class="themes">{themes}</ul></div></section>
 <section id="agenda" class="section wrap"><div class="section-top"><div><p class="eyebrow">02 / AGENDA</p><h2>The Programme</h2></div><p class="section-note">All times are China Standard Time<br>UTC+8 · Shanghai</p></div><nav class="day-nav" aria-label="Programme days">{''.join(day_links)}</nav><div class="agenda">{''.join(agenda)}</div><p class="fine">Slides, notes, and recording links will be added to individual talks as they become available.</p></section>
 <section id="participants" class="section wrap"><div class="section-top"><div><p class="eyebrow">03 / PEOPLE</p><h2 id="participants-heading">Participants list</h2></div></div><p class="table-hint">Scroll horizontally to see all columns.</p><div class="table-scroll" role="region" aria-labelledby="participants-heading" tabindex="0"><table class="participants-table"><colgroup><col class="name-column"><col class="chinese-column"><col class="affiliation-column"></colgroup><thead><tr><th scope="col">Name <span>(EN)</span></th><th scope="col">Name <span>(CN)</span></th><th scope="col">Affiliation</th></tr></thead><tbody>{participant_rows}</tbody></table></div></section>
-<section id="logistics" class="section wrap"><p class="eyebrow">04 / LOGISTICS</p><h2>Meet us in Shanghai.</h2><div class="logistics-grid"><div class="venue"><p class="eyebrow">THE VENUE</p><h3>{esc(venue['name'])} <span>· {esc(venue['floor'])}</span></h3><p>{esc(venue['full_name'])}</p><address>{esc(venue['address'])}<span lang="zh">{esc(venue['address_zh'])}</span></address><a class="text-link" href="{esc(venue['url'])}">Visit SIMIS <span aria-hidden="true">↗</span></a><p class="fine">{esc(data['logistics_note'])}</p></div><div class="practical"><div><p class="eyebrow">WHEN</p><p class="large">22–24 November 2026</p><a class="text-link" href="attachments/bootstrap-workshop.ics" download>Add dates to calendar <span aria-hidden="true">↗</span></a></div><div><p class="eyebrow">ORGANIZERS</p><div class="organizers">{organizers}</div></div><div><p class="eyebrow">WORKSHOP MATERIALS</p><a class="text-link" href="attachments/bootstrap-workshop-poster.pdf">Download the poster <span aria-hidden="true">↗</span></a></div></div></div></section>
+<section id="logistics" class="section wrap"><p class="eyebrow">04 / LOGISTICS</p><h2>Meet us in Shanghai.</h2><div class="logistics-grid"><div class="venue"><p class="eyebrow">THE VENUE</p><h3>{esc(venue['name'])} <span>· {esc(venue['floor'])}</span></h3><p>{esc(venue['full_name'])}</p><address>{esc(venue['address'])}<span lang="zh">{esc(venue['address_zh'])}</span></address><a class="text-link" href="{esc(venue['url'])}">Visit SIMIS <span aria-hidden="true">↗</span></a><p class="fine">{esc(data['logistics_note'])}</p></div><div class="practical"><div><p class="eyebrow">WHEN</p><p class="large">22–24 November 2026</p><a class="text-link" href="attachments/bootstrap-workshop.ics" download>Add dates to calendar <span aria-hidden="true">↗</span></a></div><div><p class="eyebrow">ORGANIZERS</p><div class="organizers">{organizers}</div></div><div><p class="eyebrow">WORKSHOP MATERIALS</p><a class="text-link" href="attachments/bootstrap-workshop-poster.pdf?v={poster_version}">Download the poster <span aria-hidden="true">↗</span></a></div></div></div></section>
 </main><footer class="wrap"><span>BOOTSTRAP · SIMIS</span><span>22–24 NOVEMBER 2026 · SHANGHAI</span><a href="#top">Back to top ↑</a></footer></body></html>'''
     out=ROOT/'dist';out.mkdir(exist_ok=True)
     (out/'index.html').write_text(html)

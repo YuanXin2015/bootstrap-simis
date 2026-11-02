@@ -57,7 +57,7 @@ Long recordings should be hosted on an appropriate video platform and linked fro
 
 ## Artwork and poster
 
-`assets/tower-equation.svg` is extracted from the approved poster. `assets/simis-symbol.svg` contains its SIMIS symbol. `attachments/bootstrap-workshop-poster.pdf` is the current vector poster. Replace it after future poster edits.
+`assets/tower-equation.svg` is extracted from the approved poster. `assets/simis-symbol.svg` contains its SIMIS symbol. `attachments/bootstrap-workshop-poster.pdf` is the current vector poster, sourced from `bootstrap-poster-skyline-copper-title-qr.pdf` (QR code beside the title and Ellis Ye Yuan name correction). Replace it after future poster edits; the build adds a content-based version to its download URL to avoid stale browser copies.
 
 The venue address is supported by an official SIMIS document, linked as `venue.source_url` in `workshop.json`. The scientific overview is adapted from the workshop proposal; private planning details are excluded.
 
