@@ -1,0 +1,113 @@
+{
+  "title": "Bootstrap",
+  "subtitle": "Methods in theoretical physics",
+  "year": 2026,
+  "overview": [
+    "A workshop on bootstrap and related non-perturbative methods, bringing together researchers in quantum field theory, string theory, quantum gravity, and quantum information.",
+    "Through talks and informal discussions, we will explore how symmetry, unitarity, positivity, crossing symmetry, and analyticity constrain physical theories. The workshop connects analytic insights, numerical techniques, and exact results, with space for contributions from postdocs and students."
+  ],
+  "themes": [
+    "Conformal bootstrap",
+    "Scattering amplitudes & S-matrix bootstrap",
+    "Quantum mechanics & matrix models",
+    "Integrability & exact methods",
+    "Holography & quantum information",
+    "Numerical optimization & AI-assisted methods"
+  ],
+  "days": [
+    {
+      "date": "2026-11-22",
+      "sessions": []
+    },
+    {
+      "date": "2026-11-23",
+      "sessions": []
+    },
+    {
+      "date": "2026-11-24",
+      "sessions": []
+    }
+  ],
+  "participants": [
+    {
+      "name": "Shuang-Yong Zhou",
+      "name_zh": "周双勇",
+      "affiliation": "USTC",
+      "featured": true
+    },
+    {
+      "name": "Ning Su",
+      "name_zh": "苏宁",
+      "affiliation": "YMSC, Tsinghua",
+      "featured": true
+    },
+    {
+      "name": "Xinan Zhou",
+      "name_zh": "周稀楠",
+      "affiliation": "KITS, UCAS",
+      "featured": true
+    },
+    {
+      "name": "Zhijin Li",
+      "name_zh": "李志金",
+      "affiliation": "Southeast University",
+      "featured": true
+    },
+    {
+      "name": "Gang Yang",
+      "name_zh": "杨刚",
+      "affiliation": "ITP, CAS",
+      "featured": true
+    },
+    {
+      "name": "Wenliang Li",
+      "name_zh": "李文亮",
+      "affiliation": "Sun Yat-sen University",
+      "featured": true
+    },
+    {
+      "name": "Ye Yuan",
+      "name_zh": "袁野",
+      "affiliation": "Zhejiang University",
+      "featured": true
+    },
+    {
+      "name": "Yunfeng Jiang",
+      "name_zh": "江云峰",
+      "affiliation": "Southeast University",
+      "featured": true
+    },
+    {
+      "name": "Chi-Ming Chang",
+      "name_zh": "张其明",
+      "affiliation": "YMSC, Tsinghua & BIMSA",
+      "featured": true
+    },
+    {
+      "name": "Jiaxin Qiao",
+      "name_zh": "乔稼欣",
+      "affiliation": "IPMU",
+      "featured": true
+    }
+  ],
+  "organizers": [
+    {
+      "name": "Wenjie Ma",
+      "name_zh": "马文杰"
+    },
+    {
+      "name": "Yuan Xin",
+      "name_zh": "辛苑"
+    }
+  ],
+  "venue": {
+    "name": "SIMIS",
+    "full_name": "Shanghai Institute for Mathematics and Interdisciplinary Sciences",
+    "floor": "18th floor",
+    "address": "Block A, International Innovation Plaza, 657 Songhu Road, Yangpu District, Shanghai",
+    "address_zh": "上海市杨浦区淞沪路657号创智国际广场A座",
+    "url": "https://www.simis.cn/",
+    "source_url": "https://www.simis.cn/wp-content/uploads/2024/07/SIMIS-July-18.pdf"
+  },
+  "logistics_note": "Arrival instructions and accommodation information will be added here when confirmed."
+}
