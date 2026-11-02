@@ -26,11 +26,11 @@ Open http://localhost:8765. All URLs are relative so the site also works under a
 Edit `workshop.json`, then commit and push. The GitHub workflow rebuilds automatically.
 
 - `overview` and `themes`: introductory text and scientific themes.
-- `participants`: bilingual names, affiliation, and whether to feature the participant. Names are sorted by English surname, then given name. A participant with `"featured": false` appears in an additional participants list.
+- `participants`: bilingual names and affiliation. Everyone appears in the same three-column table, sorted by English surname, then given name.
 - `days`: the three workshop dates and their sessions. Empty days display a clearly marked announcement placeholder.
 - `organizers`, `venue`, `logistics_note`: practical information.
 
-The current names and affiliations follow the corrected poster. The agenda is deliberately empty until confirmed talk details are supplied; it does not imply that every featured participant is a speaker.
+The current names and affiliations follow the corrected poster. The agenda is deliberately empty until confirmed talk details are supplied; it does not imply that every participant is a speaker.
 
 ### Add a talk with attachments and recording links
 
@@ -60,3 +60,7 @@ Long recordings should be hosted on an appropriate video platform and linked fro
 `assets/tower-equation.svg` is extracted from the approved poster. `assets/simis-symbol.svg` contains its SIMIS symbol. `attachments/bootstrap-workshop-poster.pdf` is the current vector poster. Replace it after future poster edits.
 
 The venue address is supported by an official SIMIS document, linked as `venue.source_url` in `workshop.json`. The scientific overview is adapted from the workshop proposal; private planning details are excluded.
+
+## Design backup
+
+The initial published design is preserved in the annotated tag `v1.0-poster-design` (commit `10fb57f`). It can be inspected or checked out without changing the live site.

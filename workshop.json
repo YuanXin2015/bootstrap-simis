@@ -32,62 +32,52 @@
     {
       "name": "Shuang-Yong Zhou",
       "name_zh": "周双勇",
-      "affiliation": "USTC",
-      "featured": true
+      "affiliation": "USTC"
     },
     {
       "name": "Ning Su",
       "name_zh": "苏宁",
-      "affiliation": "YMSC, Tsinghua",
-      "featured": true
+      "affiliation": "YMSC, Tsinghua"
     },
     {
       "name": "Xinan Zhou",
       "name_zh": "周稀楠",
-      "affiliation": "KITS, UCAS",
-      "featured": true
+      "affiliation": "KITS, UCAS"
     },
     {
       "name": "Zhijin Li",
       "name_zh": "李志金",
-      "affiliation": "Southeast University",
-      "featured": true
+      "affiliation": "Southeast University"
     },
     {
       "name": "Gang Yang",
       "name_zh": "杨刚",
-      "affiliation": "ITP, CAS",
-      "featured": true
+      "affiliation": "ITP, CAS"
     },
     {
       "name": "Wenliang Li",
       "name_zh": "李文亮",
-      "affiliation": "Sun Yat-sen University",
-      "featured": true
+      "affiliation": "Sun Yat-sen University"
     },
     {
       "name": "Ye Yuan",
       "name_zh": "袁野",
-      "affiliation": "Zhejiang University",
-      "featured": true
+      "affiliation": "Zhejiang University"
     },
     {
       "name": "Yunfeng Jiang",
       "name_zh": "江云峰",
-      "affiliation": "Southeast University",
-      "featured": true
+      "affiliation": "Southeast University"
     },
     {
       "name": "Chi-Ming Chang",
       "name_zh": "张其明",
-      "affiliation": "YMSC, Tsinghua & BIMSA",
-      "featured": true
+      "affiliation": "YMSC, Tsinghua & BIMSA"
     },
     {
       "name": "Jiaxin Qiao",
       "name_zh": "乔稼欣",
-      "affiliation": "IPMU",
-      "featured": true
+      "affiliation": "IPMU"
     }
   ],
   "organizers": [
