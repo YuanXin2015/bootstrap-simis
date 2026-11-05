@@ -103,7 +103,7 @@ h2 {
 .registration-link:hover {
   text-decoration-thickness:3px}
 #registration {
-  margin-top:36px;
+  margin-top:0;
   padding:clamp(20px,3vw,28px);
   background:#f1e4d8;
   border-left:3px solid var(--copper);
@@ -140,10 +140,13 @@ h2 {
   padding-block:82px;
   border-bottom:1px solid var(--rule);
   scroll-margin-top:25px}
-.two-column {
+.overview-heading {
+  margin-bottom:32px}
+.overview-layout {
   display:grid;
-  grid-template-columns:1fr 1.1fr;
-  gap:70px}
+  grid-template-columns:minmax(0,1fr) minmax(0,1fr);
+  align-items:start;
+  gap:48px}
 .section .eyebrow {
   color:var(--muted);
   margin-bottom:20px}
@@ -388,7 +391,7 @@ footer a {
   align-items:start}
 .section {
   padding-block:48px}
-.two-column,.logistics-grid {
+.overview-layout,.logistics-grid {
   grid-template-columns:1fr;
   gap:30px}
 .section-top {
