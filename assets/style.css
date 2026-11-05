@@ -84,6 +84,7 @@ h2 {
   margin:10px 0 12px}
 .hero-meta {
   display:flex;
+  flex-wrap:wrap;
   align-items:center;
   gap:28px;
   font-size:clamp(1.1rem,2.4vw,1.85rem);
@@ -94,6 +95,28 @@ h2 {
   height:26px;
   width:1px;
   background:var(--copper)}
+.registration-link {
+  color:var(--copper);
+  font-weight:750;
+  text-decoration-thickness:2px;
+  white-space:nowrap}
+.registration-link:hover {
+  text-decoration-thickness:3px}
+#registration {
+  margin-top:36px;
+  padding:clamp(20px,3vw,28px);
+  background:#f1e4d8;
+  border-left:3px solid var(--copper);
+  scroll-margin-top:28px}
+#registration .topics-heading {
+  margin-top:0;
+  color:var(--copper)}
+#registration p:last-child {
+  margin-bottom:0}
+#registration ul {
+  padding-left:1.25em}
+#registration a {
+  overflow-wrap:anywhere}
 .tower-art {
   width:100%;
   height:auto;
