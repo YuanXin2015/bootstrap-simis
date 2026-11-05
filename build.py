@@ -2,7 +2,7 @@
 from pathlib import Path
 from datetime import date
 from html import escape
-from urllib.parse import urlsplit, unquote
+from urllib.parse import urlsplit, unquote, quote
 import json
 import hashlib
 import shutil
@@ -58,6 +58,26 @@ def build():
     participant_rows=''.join(participant_html(p) for p in people)
     paragraphs=''.join(f'<p>{esc(p)}</p>' for p in data['overview'])
     themes=''.join(f'<li>{esc(t)}</li>' for t in data['themes'])
+    registration_subject = '[ChatGPT] Bootstrap Workshop Registration - [Your name]'
+    registration_body = '\r\n'.join([
+        'Dear organizers,',
+        '',
+        'I would like to register for the Bootstrap Workshop at SIMIS on 22-24 November 2026.',
+        'Please find my details below for access to SIMIS:',
+        '',
+        'Name: [Your full name]',
+        'Affiliation: [Your university or institute]',
+        'Department: [Your department]',
+        'Academic position: [Your position]',
+        'Phone number: [Your phone number, including country code]',
+        'Email address: [Your email address]',
+        '',
+        'Thank you!',
+        '[Your name]',
+    ])
+    registration_mailto = ('mailto:yuan.xin.bot@gmail.com?subject='
+                           + quote(registration_subject, safe='')
+                           + '&body=' + quote(registration_body, safe=''))
     venue=data['venue']
     organizers=''.join(f'<p>{esc(o["name"])} <span lang="zh">{esc(o["name_zh"])}</span></p>' for o in data['organizers'])
     html=f'''<!doctype html>
@@ -68,7 +88,7 @@ def build():
 </head><body><a class="skip" href="#main">Skip to content</a>
 <header class="masthead wrap"><a class="brand" href="#top" aria-label="SIMIS Bootstrap Workshop home"><img src="assets/simis-symbol.svg" width="44" height="44" alt=""><span>SIMIS</span></a><nav aria-label="Main navigation"><a href="#overview">Overview</a><a href="#agenda">Agenda</a><a href="#participants">Participants</a><a href="#logistics">Logistics</a></nav></header>
 <main id="main"><section class="hero wrap" id="top"><div class="hero-top"><p class="eyebrow">A WORKSHOP IN THEORETICAL PHYSICS</p><p class="eyebrow">SHANGHAI · 2026</p></div><h1>{esc(data['title'])}</h1><div class="hero-meta"><p>22–24 November 2026</p><span aria-hidden="true"></span><p>SIMIS · 18th floor</p><a class="registration-link" href="#registration">Registration</a></div><img class="tower-art" src="assets/tower-equation.svg" width="1020" height="525" alt="Two forms of the Oriental Pearl Tower equated above a continuous Shanghai skyline."><div class="hero-bottom"><a href="#agenda">Explore the programme <span aria-hidden="true">↓</span></a></div></section>
-<section id="overview" class="section wrap two-column"><div><p class="eyebrow">01 / OVERVIEW</p><h2>Overview</h2></div><div class="prose">{paragraphs}<h3 class="eyebrow topics-heading">SCIENTIFIC THEMES</h3><ul class="themes">{themes}</ul><div id="registration"><h3 class="eyebrow topics-heading">PARTICIPATION &amp; REGISTRATION</h3><p>The workshop will be held in person, and we warmly encourage people to join us. Registration is free.</p><p>To register, please email <a href="mailto:yuan.xin.bot@gmail.com">yuan.xin.bot@gmail.com</a> with the following details:</p><ul><li>Name</li><li>Affiliation</li><li>Department and academic position</li><li>Phone number</li><li>Email address</li></ul><p>We will use these details to arrange your access to SIMIS during the event. We look forward to seeing many of you there!</p></div></div></section>
+<section id="overview" class="section wrap two-column"><div><p class="eyebrow">01 / OVERVIEW</p><h2>Overview</h2></div><div class="prose">{paragraphs}<h3 class="eyebrow topics-heading">SCIENTIFIC THEMES</h3><ul class="themes">{themes}</ul><div id="registration"><h3 class="eyebrow topics-heading">PARTICIPATION &amp; REGISTRATION</h3><p>The workshop will be held in person, and we warmly encourage people to join us. Registration is free.</p><p>To register, please email <a href="{esc(registration_mailto)}">yuan.xin.bot@gmail.com</a> with the following details. The link opens a ready-to-fill email template:</p><ul><li>Name</li><li>Affiliation</li><li>Department and academic position</li><li>Phone number</li><li>Email address</li></ul><p>We will use these details to arrange your access to SIMIS during the event. We look forward to seeing many of you there!</p></div></div></section>
 <section id="agenda" class="section wrap"><div class="section-top"><div><p class="eyebrow">02 / AGENDA</p><h2>The Programme</h2></div><p class="section-note">All times are China Standard Time<br>UTC+8 · Shanghai</p></div><nav class="day-nav" aria-label="Programme days">{''.join(day_links)}</nav><div class="agenda">{''.join(agenda)}</div><p class="fine">Slides, notes, and recording links will be added to individual talks as they become available.</p></section>
 <section id="participants" class="section wrap"><div class="section-top"><div><p class="eyebrow">03 / PEOPLE</p><h2 id="participants-heading">Participants list</h2></div><p class="section-note">Participants are tentative</p></div><p class="table-hint">Scroll horizontally to see all columns.</p><div class="table-scroll" role="region" aria-labelledby="participants-heading" tabindex="0"><table class="participants-table"><colgroup><col class="name-column"><col class="chinese-column"><col class="affiliation-column"></colgroup><thead><tr><th scope="col">Name <span>(EN)</span></th><th scope="col">Name <span>(CN)</span></th><th scope="col">Affiliation</th></tr></thead><tbody>{participant_rows}</tbody></table></div></section>
 <section id="logistics" class="section wrap"><p class="eyebrow">04 / LOGISTICS</p><h2>Meet us in Shanghai.</h2><div class="logistics-grid"><div class="venue"><p class="eyebrow">THE VENUE</p><h3>{esc(venue['name'])} <span>· {esc(venue['floor'])}</span></h3><p>{esc(venue['full_name'])}</p><address>{esc(venue['address'])}<span lang="zh">{esc(venue['address_zh'])}</span></address><a class="text-link" href="{esc(venue['url'])}">Visit SIMIS <span aria-hidden="true">↗</span></a><p class="fine">{esc(data['logistics_note'])}</p></div><div class="practical"><div><p class="eyebrow">WHEN</p><p class="large">22–24 November 2026</p><a class="text-link" href="attachments/bootstrap-workshop.ics" download>Add dates to calendar <span aria-hidden="true">↗</span></a></div><div><p class="eyebrow">ORGANIZERS</p><div class="organizers">{organizers}</div></div><div><p class="eyebrow">WORKSHOP MATERIALS</p><a class="text-link" href="attachments/bootstrap-workshop-poster.pdf?v={poster_version}">Download the poster <span aria-hidden="true">↗</span></a></div></div></div></section>
