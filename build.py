@@ -58,7 +58,7 @@ def build():
     participant_rows=''.join(participant_html(p) for p in people)
     paragraphs=''.join(f'<p>{esc(p)}</p>' for p in data['overview'])
     themes=''.join(f'<li>{esc(t)}</li>' for t in data['themes'])
-    registration_subject = '[ChatGPT] Bootstrap Workshop Registration - [Your name]'
+    registration_subject = 'Bootstrap Workshop Registration - [Your name]'
     registration_body = '\r\n'.join([
         'Dear organizers,',
         '',
