@@ -69,7 +69,7 @@ def build():
         'Affiliation: [Your university or institute]',
         'Department: [Your department]',
         'Academic position: [Your position]',
-        'Phone number: [Your phone number, including country code]',
+        'Phone number: [Your phone number]',
         'Email address: [Your email address]',
         '',
         'Thank you!',
