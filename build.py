@@ -63,6 +63,7 @@ def participant_html(p):
 
 def build():
     data=json.loads((ROOT/'workshop.json').read_text())
+    style_version=hashlib.sha256((ROOT/'assets/style.css').read_bytes()).hexdigest()[:12]
     poster_version=hashlib.sha256((ROOT/'attachments/bootstrap-workshop-poster.pdf').read_bytes()).hexdigest()[:12]
     days=data['days']
     agenda=[];day_links=[]
@@ -106,7 +107,7 @@ def build():
 <html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Bootstrap Workshop 2026 · SIMIS, Shanghai</title>
 <meta name="description" content="Bootstrap methods in theoretical physics. 22–24 November 2026 at SIMIS, Shanghai. Overview, programme, participants, and practical information.">
-<meta name="theme-color" content="#e9eee5"><link rel="icon" href="assets/simis-symbol.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css">
+<meta name="theme-color" content="#e9eee5"><link rel="icon" href="assets/simis-symbol.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css?v={style_version}">
 </head><body><a class="skip" href="#main">Skip to content</a>
 <header class="masthead wrap"><a class="brand" href="#top" aria-label="SIMIS Bootstrap Workshop home"><img src="assets/simis-symbol.svg" width="44" height="44" alt=""><span>SIMIS</span></a><nav aria-label="Main navigation"><a href="#overview">Overview</a><a href="#agenda">Agenda</a><a href="#participants">Participants</a><a href="#logistics">Logistics</a></nav></header>
 <main id="main"><section class="hero wrap" id="top"><div class="hero-top"><p class="eyebrow">A WORKSHOP IN THEORETICAL PHYSICS</p><p class="eyebrow">SHANGHAI · 2026</p></div><h1>{esc(data['title'])}</h1><div class="hero-meta"><p>22–24 November 2026</p><span aria-hidden="true"></span><p>SIMIS · 18th floor</p><a class="registration-link" href="#registration">Registration</a></div><img class="tower-art" src="assets/tower-equation.svg" width="1020" height="525" alt="Two forms of the Oriental Pearl Tower equated above a continuous Shanghai skyline."><div class="hero-bottom"><a href="#agenda">Explore the programme <span aria-hidden="true">↓</span></a></div></section>

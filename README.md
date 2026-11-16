@@ -21,6 +21,8 @@ python3 -m http.server 8765 --directory dist
 
 Open http://localhost:8765. All URLs are relative so the site also works under a project subpath.
 
+The build versions the stylesheet URL with a hash of its contents. Keep this in place so returning visitors load the matching CSS after a design update instead of using a cached older stylesheet.
+
 ## Update the workshop
 
 Edit `workshop.json`, then commit and push. The GitHub workflow rebuilds automatically.
