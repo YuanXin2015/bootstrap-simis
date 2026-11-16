@@ -30,7 +30,7 @@ Edit `workshop.json`, then commit and push. The GitHub workflow rebuilds automat
 - `days`: the three workshop dates and their sessions. Empty days display a clearly marked announcement placeholder.
 - `organizers`, `venue`, `logistics_note`: practical information.
 
-The current names and affiliations follow the corrected poster. The agenda is deliberately empty until confirmed talk details are supplied; it does not imply that every participant is a speaker.
+The programme follows the tentative timetable in the workshop planning sheet (tab 时间表, gid 1104222026). Each day contains talk slots, tea breaks, and lunch. Aligned time slots appear in a three-day comparison table on desktop and as daily schedules on smaller screens. Keep `programme_note` current when the timetable is confirmed. Participants are not automatically treated as speakers.
 
 ### Add a talk with attachments and recording links
 
@@ -51,7 +51,7 @@ The following is a schema example, **not a real scheduled talk**. Add an object 
 }
 ```
 
-Put slides, notes, and handouts in `attachments/`. URLs for local files must start with `attachments/`; the build checks that the files exist. External HTTP/HTTPS links are supported. Omit `abstract` or use an empty `resources` array when those materials are not ready. Breaks and discussions can use just `time` and `title`.
+Put slides, notes, and handouts in `attachments/`. URLs for local files must start with `attachments/`; the build checks that the files exist. External HTTP/HTTPS links are supported. Omit `abstract` or use an empty `resources` array when those materials are not ready. Breaks and discussions can use just `time` and `title`; add `"kind": "break"` for the shaded break style. For scheduled speakers whose talk titles are not yet available, omit `title` and use `"speakers": [{"name": "English name", "name_zh": "中文名"}]`. Multiple speakers in one slot remain together, without inventing individual timings. Titles, abstracts, and resources work in both desktop and mobile views.
 
 Long recordings should be hosted on an appropriate video platform and linked from the talk. The website is static: it has no visitor-facing upload form. Organizers add files and links through GitHub (or a local edit and push).
 

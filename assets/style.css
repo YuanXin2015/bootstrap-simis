@@ -263,6 +263,101 @@ h2 {
   line-height:1.6}
 .session-speaker span {
   color:var(--muted)}
+.sr-only {
+  position:absolute;
+  width:1px;
+  height:1px;
+  padding:0;
+  overflow:hidden;
+  clip-path:inset(50%);
+  white-space:nowrap}
+.programme-note {
+  color:var(--copper);
+  font-size:14px;
+  line-height:1.6;
+  margin:-14px 0 24px}
+.timetable {
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+  text-align:left;
+  border-top:2px solid var(--copper);
+  margin-bottom:22px}
+.timetable th,.timetable td {
+  padding:20px 22px;
+  border-bottom:1px solid var(--rule);
+  vertical-align:middle}
+.timetable thead th {
+  background:var(--light);
+  font-weight:500;
+  padding-block:24px}
+.timetable thead th:first-child {
+  width:156px;
+  font-size:14px}
+.timetable-date {
+  display:block;
+  font-family:Baskerville,'Palatino Linotype',Palatino,Georgia,serif;
+  font-size:27px}
+.timetable-weekday {
+  display:block;
+  font-size:12px;
+  color:var(--muted);
+  margin-top:7px;
+  letter-spacing:.04em}
+.timetable tbody th {
+  font-size:13px;
+  font-weight:500;
+  white-space:nowrap;
+  font-variant-numeric:tabular-nums;
+  color:var(--copper)}
+.timetable td+td,.timetable thead th+th {
+  border-left:1px solid var(--rule)}
+.talk-name {
+  font-size:17px;
+  font-weight:500;
+  line-height:1.45;
+  margin:0}
+.talk-name span {
+  display:block;
+  margin-top:4px;
+  font-size:14px;
+  font-weight:400;
+  color:var(--muted)}
+.talk-name+.talk-name {
+  margin-top:12px}
+.timetable h4 {
+  font-size:16px;
+  line-height:1.5;
+  margin-bottom:8px}
+.timetable-break {
+  background:rgba(152,97,56,.055)}
+.timetable .timetable-break>* {
+  padding-block:13px}
+.timetable-break h4 {
+  font-size:13px;
+  color:var(--muted);
+  margin:0}
+.agenda-mobile {
+  display:none}
+.session-break {
+  background:rgba(152,97,56,.055);
+  padding-inline:16px}
+.session-break h4 {
+  font-size:14px;
+  color:var(--muted)}
+@media(max-width:900px) {
+  .timetable-desktop {
+    display:none}
+  .agenda-mobile {
+    display:block}
+  .session {
+    padding-block:18px}
+  .session-time {
+    color:var(--copper);
+    margin-bottom:0}
+  .session-break {
+    padding-block:12px}
+}
 details {
   margin-top:12px;
   font-size:15px;
