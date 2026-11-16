@@ -37,7 +37,8 @@ def session_content(s):
     author=f'<p class="session-speaker">{speaker}'+(f' <span>· {affiliation}</span>' if affiliation else '')+'</p>' if speaker else ''
     abstract=f'<details><summary>Abstract</summary><p>{esc(s["abstract"])}</p></details>' if s.get('abstract') else ''
     resources=''.join(resource_link(r) for r in s.get('resources',[]))
-    title=f'<h4>{esc(s["title"])}</h4>' if s.get('title') else ''
+    title_text=s.get('title') or ('TBA' if names or speaker else '')
+    title=f'<h4>{esc(title_text)}</h4>' if title_text else ''
     return title+names+author+abstract+(f'<div class="resources">{resources}</div>' if resources else '')
 
 def session_html(s):

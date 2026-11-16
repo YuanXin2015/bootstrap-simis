@@ -25,7 +25,8 @@
               "name": "Shuang-Yong Zhou",
               "name_zh": "周双勇"
             }
-          ]
+          ],
+          "title": "Analytical bootstrap of Veneziano amplitude"
         },
         {
           "time": "10:15–10:30",
@@ -39,7 +40,8 @@
               "name": "Shilin Wan",
               "name_zh": "万诗林"
             }
-          ]
+          ],
+          "title": "String theory from maximal SUSY"
         },
         {
           "time": "11:15–12:00",
@@ -48,7 +50,8 @@
               "name": "Fuming Chang",
               "name_zh": "常福明"
             }
-          ]
+          ],
+          "title": "Moment approach to the SMEFT cone"
         },
         {
           "time": "12:00–13:30",
@@ -108,7 +111,8 @@
               "name": "Zhongjie Huang",
               "name_zh": "黄中杰"
             }
-          ]
+          ],
+          "title": "Spinning Mellin Bootstrap"
         },
         {
           "time": "10:15–10:30",
@@ -131,7 +135,8 @@
               "name": "Qi Chen",
               "name_zh": "陈启"
             }
-          ]
+          ],
+          "title": "Defect correlation functions via bulk supergravity"
         },
         {
           "time": "12:00–13:30",
@@ -145,7 +150,8 @@
               "name": "Songyuan Li",
               "name_zh": "李松沅"
             }
-          ]
+          ],
+          "title": "Dimensional uplifts of thermal two-point functions and higher-derivative CFTs"
         },
         {
           "time": "14:15–15:00",
@@ -154,7 +160,8 @@
               "name": "Yuheng Yao",
               "name_zh": "姚雨珩"
             }
-          ]
+          ],
+          "title": "Bootstrapping mixed correlators in the 3d O(N) normal boundary universality class"
         },
         {
           "time": "15:00–15:30",
@@ -177,7 +184,8 @@
               "name": "Wenni Zheng",
               "name_zh": "郑文旎"
             }
-          ]
+          ],
+          "title": "Topologically twisted index for ABJM at finite N & Black hole microstates in AdS_4"
         }
       ]
     },
@@ -205,7 +213,8 @@
               "name": "Yongwei Guo",
               "name_zh": "郭永炜"
             }
-          ]
+          ],
+          "title": "Thermal Polyakov bootstrap"
         },
         {
           "time": "11:15–12:00",

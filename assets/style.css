@@ -328,7 +328,15 @@ h2 {
 .timetable h4 {
   font-size:16px;
   line-height:1.5;
-  margin-bottom:8px}
+  font-weight:600;
+  overflow-wrap:anywhere;
+  margin-bottom:12px}
+.timetable h4~.talk-name {
+  font-size:15px}
+.session h4 {
+  overflow-wrap:anywhere}
+.session h4+.talk-name {
+  margin-top:10px}
 .timetable-break {
   background:rgba(152,97,56,.055)}
 .timetable .timetable-break>* {
