@@ -28,7 +28,7 @@ The build versions the stylesheet URL with a hash of its contents. Keep this in 
 Edit `workshop.json`, then commit and push. The GitHub workflow rebuilds automatically.
 
 - `overview` and `themes`: introductory text and scientific themes.
-- `participants`: bilingual names and affiliation. Everyone appears in the same three-column table, sorted by English surname, then given name.
+- `participants`: bilingual names and affiliation. The original featured participants (`"featured": true`) and people scheduled in `days[].sessions[].speakers` appear first. Other participants are in a closed-by-default “More participants” section. Both groups use the same three-column design and are sorted by English surname, then given name. Scheduling a participant automatically moves them into the visible group.
 - `days`: the three workshop dates and their sessions. Empty days display a clearly marked announcement placeholder.
 - `organizers`, `venue`, `logistics_note`: practical information.
 

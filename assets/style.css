@@ -637,6 +637,24 @@ footer {
 .table-hint {
   display:none}
 
+.more-participants {
+  margin-top:22px}
+.more-participants>summary {
+  width:100%;
+  padding:18px 22px;
+  background:rgba(152,97,56,.065);
+  border:1px solid var(--rule);
+  font-size:15px;
+  font-weight:600;
+  color:var(--copper)}
+.more-participants>summary:hover {
+  background:rgba(152,97,56,.11)}
+.participant-count {
+  margin-left:6px;
+  font-weight:400}
+.more-participants[open]>summary {
+  margin-bottom:18px}
+
 @media(max-width:760px) {
   .participants-table thead th {
   padding:15px 16px;
