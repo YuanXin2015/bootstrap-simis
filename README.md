@@ -70,3 +70,5 @@ The initial published design is preserved in the annotated tag `v1.0-poster-desi
 ### Talk details
 
 The subsection below the timetable is generated from the same `days[].sessions` records. Timetable titles link to expandable entries with bilingual speakers and affiliations resolved from `participants` (or an explicit speaker `affiliation`). Add `abstract` to the session to replace “Abstract forthcoming.”; line breaks are preserved. Slides and recording `resources` appear with the abstract. Missing titles remain TBA. Shared slots keep all speakers together.
+
+Abstracts support `$...$` inline mathematics through MathJax 4.0.0 from jsDelivr, loaded only when an abstract contains math delimiters. Source text remains available if the CDN is unavailable. Preserve submitted wording; incomplete notation must be confirmed instead of guessed.

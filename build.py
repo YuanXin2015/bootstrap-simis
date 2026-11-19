@@ -58,6 +58,9 @@ def talk_details_html(data):
                 zh=f' <span lang="zh">{esc(p["name_zh"])}</span>' if p.get('name_zh') else ''
                 authors.append(f'<span class="detail-speaker">{esc(p["name"])}{zh} <span class="detail-affiliation">({esc(affiliation)})</span></span>')
             abstract=esc(s.get('abstract') or 'Abstract forthcoming.')
+            # Preserve an incomplete expression from the supplied abstract as
+            # source text until the missing space symbol is confirmed.
+            abstract=abstract.replace(r'$\mathbb^4$', r'<code class="tex2jax_ignore">\mathbb^4</code>')
             resources=''.join(resource_link(r) for r in s.get('resources',[]))
             talks.append(f'<details class="talk-detail" id="{s["_detail_id"]}"><summary><span class="detail-time">{esc(s.get("time","Time TBA"))}</span><span class="detail-description"><span class="detail-title">{esc(s.get("title") or "TBA")}</span>{"".join(authors)}</span><span class="detail-toggle" aria-hidden="true">+</span></summary><div class="detail-body"><h5>Abstract</h5><p>{abstract}</p>'+ (f'<div class="resources">{resources}</div>' if resources else '')+'</div></details>')
         if talks:
@@ -112,6 +115,10 @@ def build():
             if s.get('speakers') or s.get('speaker'):
                 s['_detail_id']=f'talk-{day["date"]}-{i+1:02}'
     talk_details=talk_details_html(data)
+    math_scripts=''
+    if any('$' in s.get('abstract','') for day in days for s in day['sessions']):
+        math_scripts='''<script>window.MathJax = {tex: {inlineMath: {'[+]': [['$', '$']]}}};</script>
+<script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-chtml.js"></script>'''
     agenda=[];day_links=[]
     for i,day in enumerate(days):
         dt=date.fromisoformat(day['date'])
@@ -156,7 +163,7 @@ def build():
 <title>Bootstrap Workshop 2026 · SIMIS, Shanghai</title>
 <meta name="description" content="Bootstrap methods in theoretical physics. 22–24 November 2026 at SIMIS, Shanghai. Overview, programme, participants, and practical information.">
 <meta name="theme-color" content="#e9eee5"><link rel="icon" href="assets/simis-symbol.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/style.css?v={style_version}">
-</head><body><a class="skip" href="#main">Skip to content</a>
+{math_scripts}</head><body><a class="skip" href="#main">Skip to content</a>
 <header class="masthead wrap"><a class="brand" href="#top" aria-label="SIMIS Bootstrap Workshop home"><img src="assets/simis-symbol.svg" width="44" height="44" alt=""><span>SIMIS</span></a><nav aria-label="Main navigation"><a href="#overview">Overview</a><a href="#agenda">Agenda</a><a href="#participants">Participants</a><a href="#logistics">Logistics</a></nav></header>
 <main id="main"><section class="hero wrap" id="top"><div class="hero-top"><p class="eyebrow">A WORKSHOP IN THEORETICAL PHYSICS</p><p class="eyebrow">SHANGHAI · 2026</p></div><h1>{esc(data['title'])}</h1><div class="hero-meta"><p>22–24 November 2026</p><span aria-hidden="true"></span><p>SIMIS · 18th floor</p><a class="registration-link" href="#registration">Registration</a></div><img class="tower-art" src="assets/tower-equation.svg" width="1020" height="525" alt="Two forms of the Oriental Pearl Tower equated above a continuous Shanghai skyline."><div class="hero-bottom"><a href="#agenda">Explore the programme <span aria-hidden="true">↓</span></a></div></section>
 <section id="overview" class="section wrap"><div class="overview-heading"><p class="eyebrow">01 / OVERVIEW</p><h2>Overview</h2></div><div class="overview-layout"><div class="prose">{paragraphs}<h3 class="eyebrow topics-heading">SCIENTIFIC THEMES</h3><ul class="themes">{themes}</ul></div><div id="registration" class="prose"><h3 class="eyebrow topics-heading">PARTICIPATION &amp; REGISTRATION</h3><p>The workshop will be held in person, and we warmly encourage people to join us. Registration is free.</p><p>To register, please email <a href="{esc(registration_mailto)}">yuan.xin.bot@gmail.com</a> with the following details:</p><ul><li>Name</li><li>Affiliation</li><li>Department and academic position</li><li>Phone number</li><li>Email address</li></ul><p>We will use these details to arrange your access to SIMIS during the event. We look forward to seeing many of you there!</p></div></div></section>

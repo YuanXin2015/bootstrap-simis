@@ -74,7 +74,8 @@
               "name": "Xizhe Liu",
               "name_zh": "刘西哲"
             }
-          ]
+          ],
+          "title": "Bootstrap in Hamiltonian Lattice Yang-Mills Theory"
         },
         {
           "time": "15:00–15:30",
@@ -97,7 +98,9 @@
               "name": "Chang Liu",
               "name_zh": "刘畅"
             }
-          ]
+          ],
+          "title": "Maximal Giant Graviton Correlators in the 6d (2,0) Theory",
+          "abstract": "We study four point functions of two maximal giant gravitons and two light half BPS operators in the 6d (2,0) theory. Treating the heavy operator pair as a zero dimensional defect, we use superconformal Ward identities to constrain the correlator at tree level in supergravity. Parisi Sourlas dimensional reduction organizes the bulk exchanges in terms of scalar seeds and leads us to propose a compact formula for arbitrary light Kaluza Klein levels. We test this results using the chiral bootstrap and the flat space limit."
         },
         {
           "time": "17:00–",
@@ -116,7 +119,8 @@
               "name_zh": "黄中杰"
             }
           ],
-          "title": "Spinning Mellin Bootstrap"
+          "title": "Spinning Mellin Bootstrap",
+          "abstract": "In this talk, I will show how to develop the Mellin formalism for spinning conformal correlators and use it to bootstrap AdS Yang-Mills theory and Einstein gravity. The key idea is that, kinematically, an n-point spinning correlator can be organized as a 2n-point scalar correlator. Based on this idea, I will introduce spinning Mellin amplitudes and derive their general pole structure, factorization properties, and flat space limit. I will then show how these ingredients, combined with conservation, fix tree-level amplitudes in AdS Yang-Mills theory and Einstein gravity through five points, and explain how the bootstrap can in principle be extended to arbitrary multiplicity."
         },
         {
           "time": "10:15–10:30",
@@ -130,7 +134,9 @@
               "name": "Xinan Zhou",
               "name_zh": "周稀楠"
             }
-          ]
+          ],
+          "title": "No Particle Production and Integrability in AdS2",
+          "abstract": "In two-dimensional flat spacetime, the absence of particle production is a hallmark of integrability. In this talk, I will discuss how this criterion can be generalized to AdS, where conventional scattering amplitudes are unavailable. We formulate an AdS analogue of no particle production through the absence of logarithmic singularities in holographic boundary correlators. Imposing this condition at arbitrary multiplicity uniquely selects the Liouville and Toda theories in AdS2. Along the way, we derive a simple all-point formula for AdS Berends–Giele currents and obtain closed-form expressions for boundary correlators. We also show that an independent approach based on higher-spin conserved currents leads to the same theories."
         },
         {
           "time": "11:15–12:00",
@@ -140,7 +146,8 @@
               "name_zh": "陈启"
             }
           ],
-          "title": "Defect correlation functions via bulk supergravity"
+          "title": "Defect correlation functions via bulk supergravity",
+          "abstract": "We resolve a discrepancy between direct supergravity calculations and bootstrap results for defect two-point correlators, previously attributed to missing contact terms. We identify two sources of these contributions: nonlinear Kaluza–Klein field redefinitions that induce additional quadratic couplings to localized sources, and off-shell bulk–defect vertices that collapse internal defect propagators. We demonstrate that these mechanisms restore agreement in two examples of 4d $\\mathcal{N}=4$ SYM: correlators in the presence of a $\\frac12$-BPS Wilson line and on $\\mathbb^4$."
         },
         {
           "time": "12:00–13:30",
@@ -189,7 +196,8 @@
               "name_zh": "郑文旎"
             }
           ],
-          "title": "Topologically twisted index for ABJM at finite N & Black hole microstates in AdS_4"
+          "title": "Topologically Twisted Indices for ABJM at Finite N via Algebraic Geometry & Black Hole Microstates in AdS4",
+          "abstract": "Understanding the microscopic origin of black hole entropy is a central goal of quantum gravity. The AdS/CFT correspondence provides a natural framework for addressing this problem through supersymmetric partition functions of dual field theories. Supersymmetric localization is a powerful non-perturbative method in quantum field theory that enables exact computations of protected observables at strong coupling. In this talk, I will first introduce the topologically twisted index (TTI) of the 3d ABJM theory at finite rank and Chern–Simons level k=1. The construction builds on the Bethe Ansatz Equations (BAEs), which is carried out using two alternative methods, both relying on techniques from algebraic geometry. Under specific identifications among the magnetic fluxes and chemical potentials, these methods yield finite-rank results for N=2,…,22. These indices are then compared with their large-N counterparts. Finally, I will present holographic comparisons between the Laurent expansion of the TTI at finite N as a function of its fugacity and the Bekenstein–Hawking entropy of the dual magnetic and dyonic supersymmetric AdS_4 black holes."
         },
         {
           "time": "17:00–",
@@ -232,7 +240,8 @@
               "name_zh": "沈庭弘"
             }
           ],
-          "title": "Decoding SO(5) Deconfined Multicriticality: Conformal Bootstrap and Fuzzy-Sphere Spectroscopy"
+          "title": "Decoding SO(5) Deconfined Multicriticality: Conformal Bootstrap and Fuzzy-Sphere Spectroscopy",
+          "abstract": "Tinghong Shen (Southeast University)\nBased on work with Zhijin Li: arXiv:2606.09985 and arXiv:2611.20214\n\nWhether the deconfined quantum critical point (DQCP) is a genuine unitary conformal field theory (CFT) or pseudocriticality governed by walking near complex fixed points has been an outstanding puzzle for two decades. We address this question by combining the conformal bootstrap with fuzzy-sphere spectroscopy.\n\nUnder suitable sparseness assumptions, the SO(5) bootstrap bound develops a sharp cone whose apex sits remarkably close to large-scale quantum Monte Carlo (QMC) estimates. Incorporating mixed correlators of the three lowest scalars $\\phi$, $s$, and $t$, we extract the spectrum and OPE coefficients across nine SO(5) representations. On the fuzzy sphere, symmetry projection extends exact diagonalization up to $N = 12$ Landau orbitals, and conformal lowering identifies 52 primaries at $N = 10$, of which 31 were previously unclassified.\n\nThe three methods show striking quantitative concordance: the bootstrap singlet dimension $\\Delta_s = 2.258$ closely matches QMC’s $2.273(4)$; OPE ratios agree with the fuzzy sphere to within $0.3\\%\\text{--}0.7\\%$; and beyond the 23 previously established fuzzy-sphere primaries that already exhibit close agreement with the bootstrap, 16 of the newly identified primaries are successfully predicted in the accessible channels. Together, these results provide comprehensive evidence for the multicriticality scenario of the SO(5) DQCP."
         },
         {
           "time": "12:00–13:30",
@@ -246,7 +255,9 @@
               "name": "Yunxiao Ye",
               "name_zh": "叶云霄"
             }
-          ]
+          ],
+          "title": "Positivity bounds in effective field theories beyond tree level",
+          "abstract": "In an effective field theory (EFT) with an analytic, unitary ultraviolet (UV) completion, positivity bounds often translate into simple sign constraints on Wilson coefficients at tree level. This connection becomes more obscure when loop effects are important. In a scalar EFT, explicit matching can yield a negative Wilson coefficient for a dimension-eight operator first generated at one loop in the UV theory. Loops involving dimension-four and dimension-six operators also enter the forward dispersion relation at this order, and the sum of all contributions remains positive. The optical theorem relates a cut of the one-loop amplitude to interference between the contact and heavy-particle exchange amplitudes. This interference can contribute to the total cross section with either sign. In scalar electrodynamics with a weakly coupled UV completion whose heavy particles have spin at most one, the photon–scalar coefficient can likewise violate its tree-level bound at the matching scale. In photon–photon scattering, gauge invariance pushes competing contributions from other operators beyond one loop in the UV theory, so both four-photon bounds hold through that order."
         },
         {
           "time": "14:15–15:00",
@@ -283,7 +294,8 @@
               "name_zh": "柏辰"
             }
           ],
-          "title": "Bootstrapping Symmetries in Many-body systems"
+          "title": "Bootstrapping Symmetries in Many-body systems",
+          "abstract": "Symmetries shape the spectra and dynamics of quantum many-body systems, yet identifying hidden symmetries remains challenging. In this talk, I will present a bootstrap framework that starts from a known symmetry subgroup and uses the cross spectral form factor (xSFF) to probe correlations between its symmetry sectors. Combining these spectral data with algebraic consistency conditions enables the reconstruction of representation-theoretic data of hidden finite-group symmetries, including branching rules, fusion rules, and character tables, without explicitly constructing the hidden symmetry operators. I will illustrate the framework in interacting lattice models, explain its applicability to both chaotic and integrable systems, and outline an ancilla-assisted randomized-measurement protocol for accessing the xSFF experimentally. If time permits, I will conclude with ongoing extensions to open quantum systems and projective representations, including applications to identifying information preserved under noise."
         },
         {
           "time": "17:00–",
