@@ -58,9 +58,6 @@ def talk_details_html(data):
                 zh=f' <span lang="zh">{esc(p["name_zh"])}</span>' if p.get('name_zh') else ''
                 authors.append(f'<span class="detail-speaker">{esc(p["name"])}{zh} <span class="detail-affiliation">({esc(affiliation)})</span></span>')
             abstract=esc(s.get('abstract') or 'Abstract forthcoming.')
-            # Preserve an incomplete expression from the supplied abstract as
-            # source text until the missing space symbol is confirmed.
-            abstract=abstract.replace(r'$\mathbb^4$', r'<code class="tex2jax_ignore">\mathbb^4</code>')
             resources=''.join(resource_link(r) for r in s.get('resources',[]))
             talks.append(f'<details class="talk-detail" id="{s["_detail_id"]}"><summary><span class="detail-time">{esc(s.get("time","Time TBA"))}</span><span class="detail-description"><span class="detail-title">{esc(s.get("title") or "TBA")}</span>{"".join(authors)}</span><span class="detail-toggle" aria-hidden="true">+</span></summary><div class="detail-body"><h5>Abstract</h5><p>{abstract}</p>'+ (f'<div class="resources">{resources}</div>' if resources else '')+'</div></details>')
         if talks:
