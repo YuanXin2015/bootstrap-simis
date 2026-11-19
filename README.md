@@ -66,3 +66,7 @@ The venue address is supported by an official SIMIS document, linked as `venue.s
 ## Design backup
 
 The initial published design is preserved in the annotated tag `v1.0-poster-design` (commit `10fb57f`). It can be inspected or checked out without changing the live site.
+
+### Talk details
+
+The subsection below the timetable is generated from the same `days[].sessions` records. Timetable titles link to expandable entries with bilingual speakers and affiliations resolved from `participants` (or an explicit speaker `affiliation`). Add `abstract` to the session to replace “Abstract forthcoming.”; line breaks are preserved. Slides and recording `resources` appear with the abstract. Missing titles remain TBA. Shared slots keep all speakers together.

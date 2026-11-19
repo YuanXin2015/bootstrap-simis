@@ -684,3 +684,94 @@ footer {
 .table-hint {
   display:none}
 }
+
+/* Talk details share the programme data and keep long abstracts folded. */
+.talk-link {
+  text-decoration:none;
+  text-underline-offset:4px}
+.talk-link:hover {
+  text-decoration:underline}
+.talk-details {
+  margin-top:60px;
+  padding-top:36px;
+  border-top:2px solid var(--copper);
+  scroll-margin-top:28px}
+.talk-details h3 {
+  font-family:Baskerville,'Palatino Linotype',Palatino,Georgia,serif;
+  font-size:36px;
+  letter-spacing:-.02em}
+.talk-detail-day {
+  margin-top:32px}
+.talk-detail-day>h4 {
+  font-size:20px;
+  margin-bottom:18px}
+.talk-detail-day>h4 span {
+  margin-left:12px;
+  font-size:14px;
+  color:var(--muted)}
+.talk-detail {
+  margin:0;
+  border-top:1px solid var(--rule);
+  scroll-margin-top:28px}
+.talk-detail:last-child {
+  border-bottom:1px solid var(--rule)}
+.talk-detail>summary {
+  display:grid;
+  grid-template-columns:130px minmax(0,1fr) 20px;
+  gap:24px;
+  width:100%;
+  padding:22px 16px;
+  list-style:none;
+  color:var(--ink)}
+.talk-detail>summary::-webkit-details-marker {
+  display:none}
+.talk-detail>summary:hover,.talk-detail:target {
+  background:rgba(152,97,56,.055)}
+.detail-time {
+  color:var(--copper);
+  font-size:13px;
+  font-variant-numeric:tabular-nums}
+.detail-title {
+  display:block;
+  font-size:18px;
+  font-weight:600;
+  line-height:1.5;
+  margin-bottom:8px;
+  overflow-wrap:anywhere}
+.detail-speaker {
+  display:block;
+  font-size:14px;
+  line-height:1.7}
+.detail-speaker [lang=zh] {
+  margin-left:6px}
+.detail-affiliation {
+  color:var(--muted)}
+.detail-toggle {
+  color:var(--copper);
+  font-size:22px;
+  line-height:1.2}
+.talk-detail[open] .detail-toggle {
+  transform:rotate(45deg)}
+.detail-body {
+  padding:0 60px 24px 170px;
+  max-width:980px}
+.detail-body h5 {
+  color:var(--copper);
+  font-size:11px;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin:0 0 10px}
+.detail-body p {
+  margin:0;
+  font-size:15px;
+  line-height:1.8;
+  overflow-wrap:anywhere}
+@media(max-width:760px) {
+  .talk-details {margin-top:40px}
+  .talk-detail>summary {grid-template-columns:minmax(0,1fr) 20px;gap:8px 16px;padding:18px 10px}
+  .detail-time {grid-column:1}
+  .detail-description {grid-row:2;grid-column:1}
+  .detail-toggle {grid-row:1;grid-column:2}
+  .detail-title {font-size:17px}
+  .detail-body {padding:0 10px 22px}
+}

@@ -35,11 +35,36 @@ def session_content(s):
     speaker=esc(s.get('speaker',''))
     affiliation=esc(s.get('affiliation',''))
     author=f'<p class="session-speaker">{speaker}'+(f' <span>· {affiliation}</span>' if affiliation else '')+'</p>' if speaker else ''
-    abstract=f'<details><summary>Abstract</summary><p>{esc(s["abstract"])}</p></details>' if s.get('abstract') else ''
-    resources=''.join(resource_link(r) for r in s.get('resources',[]))
     title_text=s.get('title') or ('TBA' if names or speaker else '')
-    title=f'<h4>{esc(title_text)}</h4>' if title_text else ''
-    return title+names+author+abstract+(f'<div class="resources">{resources}</div>' if resources else '')
+    title_label=esc(title_text)
+    if s.get('_detail_id'):
+        title_label=f'<a class="talk-link" href="#{s["_detail_id"]}">{title_label}</a>'
+    title=f'<h4>{title_label}</h4>' if title_text else ''
+    return title+names+author
+
+def talk_details_html(data):
+    by_name={p['name']:p for p in data['participants']}
+    by_zh={p['name_zh']:p for p in data['participants'] if p.get('name_zh')}
+    sections=[]
+    for day in data['days']:
+        talks=[]
+        for s in day['sessions']:
+            if not s.get('_detail_id'): continue
+            authors=[]
+            speakers=s.get('speakers') or [{'name':s['speaker'],'affiliation':s.get('affiliation','')}]
+            for p in speakers:
+                record=by_zh.get(p.get('name_zh')) or by_name.get(p['name'],{})
+                affiliation=p.get('affiliation') or record.get('affiliation') or s.get('affiliation') or 'Affiliation TBA'
+                zh=f' <span lang="zh">{esc(p["name_zh"])}</span>' if p.get('name_zh') else ''
+                authors.append(f'<span class="detail-speaker">{esc(p["name"])}{zh} <span class="detail-affiliation">({esc(affiliation)})</span></span>')
+            abstract=esc(s.get('abstract') or 'Abstract forthcoming.')
+            resources=''.join(resource_link(r) for r in s.get('resources',[]))
+            talks.append(f'<details class="talk-detail" id="{s["_detail_id"]}"><summary><span class="detail-time">{esc(s.get("time","Time TBA"))}</span><span class="detail-description"><span class="detail-title">{esc(s.get("title") or "TBA")}</span>{"".join(authors)}</span><span class="detail-toggle" aria-hidden="true">+</span></summary><div class="detail-body"><h5>Abstract</h5><p>{abstract}</p>'+ (f'<div class="resources">{resources}</div>' if resources else '')+'</div></details>')
+        if talks:
+            dt=date.fromisoformat(day['date'])
+            sections.append(f'<section class="talk-detail-day" aria-labelledby="details-{day["date"]}"><h4 id="details-{day["date"]}">{dt.strftime("%A")} <span>{dt.day} November</span></h4>{"".join(talks)}</section>')
+    if not sections: return ''
+    return '<section class="talk-details" id="talk-details" aria-labelledby="talk-details-heading"><div class="section-top"><h3 id="talk-details-heading">Talk details</h3><p class="section-note">Select a talk to read its abstract.<br>All times are China Standard Time · UTC+8</p></div>'+''.join(sections)+'</section>'
 
 def session_html(s):
     kind=' session-break' if s.get('kind') == 'break' else ''
@@ -82,6 +107,11 @@ def build():
     style_version=hashlib.sha256((ROOT/'assets/style.css').read_bytes()).hexdigest()[:12]
     poster_version=hashlib.sha256((ROOT/'attachments/bootstrap-workshop-poster.pdf').read_bytes()).hexdigest()[:12]
     days=data['days']
+    for day in days:
+        for i,s in enumerate(day['sessions']):
+            if s.get('speakers') or s.get('speaker'):
+                s['_detail_id']=f'talk-{day["date"]}-{i+1:02}'
+    talk_details=talk_details_html(data)
     agenda=[];day_links=[]
     for i,day in enumerate(days):
         dt=date.fromisoformat(day['date'])
@@ -130,7 +160,7 @@ def build():
 <header class="masthead wrap"><a class="brand" href="#top" aria-label="SIMIS Bootstrap Workshop home"><img src="assets/simis-symbol.svg" width="44" height="44" alt=""><span>SIMIS</span></a><nav aria-label="Main navigation"><a href="#overview">Overview</a><a href="#agenda">Agenda</a><a href="#participants">Participants</a><a href="#logistics">Logistics</a></nav></header>
 <main id="main"><section class="hero wrap" id="top"><div class="hero-top"><p class="eyebrow">A WORKSHOP IN THEORETICAL PHYSICS</p><p class="eyebrow">SHANGHAI · 2026</p></div><h1>{esc(data['title'])}</h1><div class="hero-meta"><p>22–24 November 2026</p><span aria-hidden="true"></span><p>SIMIS · 18th floor</p><a class="registration-link" href="#registration">Registration</a></div><img class="tower-art" src="assets/tower-equation.svg" width="1020" height="525" alt="Two forms of the Oriental Pearl Tower equated above a continuous Shanghai skyline."><div class="hero-bottom"><a href="#agenda">Explore the programme <span aria-hidden="true">↓</span></a></div></section>
 <section id="overview" class="section wrap"><div class="overview-heading"><p class="eyebrow">01 / OVERVIEW</p><h2>Overview</h2></div><div class="overview-layout"><div class="prose">{paragraphs}<h3 class="eyebrow topics-heading">SCIENTIFIC THEMES</h3><ul class="themes">{themes}</ul></div><div id="registration" class="prose"><h3 class="eyebrow topics-heading">PARTICIPATION &amp; REGISTRATION</h3><p>The workshop will be held in person, and we warmly encourage people to join us. Registration is free.</p><p>To register, please email <a href="{esc(registration_mailto)}">yuan.xin.bot@gmail.com</a> with the following details:</p><ul><li>Name</li><li>Affiliation</li><li>Department and academic position</li><li>Phone number</li><li>Email address</li></ul><p>We will use these details to arrange your access to SIMIS during the event. We look forward to seeing many of you there!</p></div></div></section>
-<section id="agenda" class="section wrap"><div class="section-top"><div><p class="eyebrow">02 / AGENDA</p><h2>The Programme</h2></div><p class="section-note">All times are China Standard Time<br>UTC+8 · Shanghai</p></div>{programme_note}{timetable}<div class="{daily_class}"><nav class="day-nav" aria-label="Programme days">{''.join(day_links)}</nav><div class="agenda">{''.join(agenda)}</div></div><p class="fine">Slides, notes, and recording links will be added to individual talks as they become available.</p></section>
+<section id="agenda" class="section wrap"><div class="section-top"><div><p class="eyebrow">02 / AGENDA</p><h2>The Programme</h2></div><p class="section-note">All times are China Standard Time<br>UTC+8 · Shanghai</p></div>{programme_note}{timetable}<div class="{daily_class}"><nav class="day-nav" aria-label="Programme days">{''.join(day_links)}</nav><div class="agenda">{''.join(agenda)}</div></div><p class="fine">Slides, notes, and recording links will be added to individual talks as they become available.</p>{talk_details}</section>
 <section id="participants" class="section wrap"><div class="section-top"><div><p class="eyebrow">03 / PEOPLE</p><h2 id="participants-heading">Participants list</h2></div><p class="section-note">Participants are tentative</p></div><p class="table-hint">Scroll horizontally to see all columns.</p>{participant_list}</section>
 <section id="logistics" class="section wrap"><p class="eyebrow">04 / LOGISTICS</p><h2>Meet us in Shanghai.</h2><div class="logistics-grid"><div class="venue"><p class="eyebrow">THE VENUE</p><h3>{esc(venue['name'])} <span>· {esc(venue['floor'])}</span></h3><p>{esc(venue['full_name'])}</p><address>{esc(venue['address'])}<span lang="zh">{esc(venue['address_zh'])}</span></address><a class="text-link" href="{esc(venue['url'])}">Visit SIMIS <span aria-hidden="true">↗</span></a><p class="fine">{esc(data['logistics_note'])}</p></div><div class="practical"><div><p class="eyebrow">WHEN</p><p class="large">22–24 November 2026</p><a class="text-link" href="attachments/bootstrap-workshop.ics" download>Add dates to calendar <span aria-hidden="true">↗</span></a></div><div><p class="eyebrow">ORGANIZERS</p><div class="organizers">{organizers}</div></div><div><p class="eyebrow">WORKSHOP MATERIALS</p><a class="text-link" href="attachments/bootstrap-workshop-poster.pdf?v={poster_version}">Download the poster <span aria-hidden="true">↗</span></a></div></div></div></section>
 </main><footer class="wrap"><span>BOOTSTRAP · SIMIS</span><span>22–24 NOVEMBER 2026 · SHANGHAI</span><a href="#top">Back to top ↑</a></footer></body></html>'''
