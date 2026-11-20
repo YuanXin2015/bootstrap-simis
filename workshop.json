@@ -545,6 +545,21 @@
       "name": "Bo Peng",
       "name_zh": "彭博",
       "affiliation": "Fudan University"
+    },
+    {
+      "name": "Alexey Koshelev",
+      "name_zh": "",
+      "affiliation": "ShanghaiTech University"
+    },
+    {
+      "name": "Yingqian Zhu",
+      "name_zh": "朱滢茜",
+      "affiliation": "HIAS, UCAS"
+    },
+    {
+      "name": "Zefu Liu",
+      "name_zh": "刘泽夫",
+      "affiliation": "Sun Yat-sen University"
     }
   ],
   "organizers": [
