@@ -71,14 +71,16 @@ def session_html(s):
     return f'<article class="session{kind}"><p class="session-time">{esc(s.get("time", "Time TBA"))}</p><div>{session_content(s)}</div></article>'
 
 def timetable_html(days):
-    """Compare aligned days; use the daily layout if their time slots differ."""
-    times=[s.get('time') for s in days[0]['sessions']]
-    if not times or any([s.get('time') for s in day['sessions']] != times for day in days):
+    """Align sessions by time, leaving other days blank for day-specific events."""
+    if any(not s.get('time') for day in days for s in day['sessions']):
         return ''
+    times=sorted({s['time'] for day in days for s in day['sessions']})
+    if not times: return ''
+    by_day=[{s['time']:s for s in day['sessions']} for day in days]
     headers=''.join(f'<th scope="col"><span class="timetable-date">{date.fromisoformat(day["date"]).day} November</span><span class="timetable-weekday">{date.fromisoformat(day["date"]).strftime("%A")}</span></th>' for day in days)
     rows=[]
-    for i,time in enumerate(times):
-        sessions=[day['sessions'][i] for day in days]
+    for time in times:
+        sessions=[sessions_by_time.get(time,{}) for sessions_by_time in by_day]
         kind=' class="timetable-break"' if all(s.get('kind') == 'break' for s in sessions) else ''
         cells=''.join(f'<td>{session_content(s)}</td>' for s in sessions)
         rows.append(f'<tr{kind}><th scope="row">{esc(time)}</th>{cells}</tr>')

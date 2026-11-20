@@ -19,6 +19,14 @@
       "date": "2026-11-22",
       "sessions": [
         {
+          "time": "08:45–09:15",
+          "title": "Reception"
+        },
+        {
+          "time": "09:15–09:30",
+          "title": "Kickoff"
+        },
+        {
           "time": "09:30–10:15",
           "speakers": [
             {
