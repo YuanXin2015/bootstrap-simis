@@ -280,7 +280,9 @@
               "name": "Ning Su",
               "name_zh": "苏宁"
             }
-          ]
+          ],
+          "title": "The reconstruction program of 2d rational CFT",
+          "abstract": "I will explain the reconstruction program for 2d rational CFT and show a successful example from basic constraints to full construction. AI is heavily used in this work and I will share my experience."
         },
         {
           "time": "15:00–15:30",
@@ -298,7 +300,9 @@
               "name": "Jiarong Zhang",
               "name_zh": "张家荣"
             }
-          ]
+          ],
+          "title": "All–KK One–Loop Supergravity on $\\mathrm{AdS}_5\\times S^5$",
+          "abstract": "In this talk we will review bootstrap techniques for one-loop holographic correlators in strong coupling region. We discuss how to obtain a complete generating function for four-point correlators with arbitrary Kaluza–Klein charges under $\\mathrm{AdS}\\times\\mathrm{S}$ Mellin formalism . Finally we briefly discuss its relation to the position space, and try to understand the amplitude structure using 10d box diagram."
         },
         {
           "time": "16:15–17:00",
