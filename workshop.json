@@ -59,7 +59,8 @@
               "name_zh": "常福明"
             }
           ],
-          "title": "Moment approach to the SMEFT cone"
+          "title": "Moment approach to the SMEFT cone",
+          "abstract": "Positivity bounds, derived from fundamental S-matrix principles, constrain the Wilson coefficients of effective field theories to lie within a convex cone. In this talk, I discuss the group theoretic framework construction of extremal rays (ERs) for dimension-8 anomalous quartic gauge couplings in SMEFT. The resulting positivity cone occupies only about 0.055% of the 22-dimensional Wilson coefficient space. The construction also reveals continuous ER families arising from symmetry degeneracies, leading to potentially curved boundaries. I then introduce a moment-based framework to derive analytic positivity bounds and discuss how boundary saturation can guide UV reconstruction."
         },
         {
           "time": "12:00–13:30",
