@@ -199,7 +199,9 @@
               "name": "Chi-Ming Chang",
               "name_zh": "张其明"
             }
-          ]
+          ],
+          "title": "Large gaps and BTZ entropy in discrete modular spectra",
+          "abstract": "A microscopic description of pure AdS₃ gravity should account for black-hole entropy in terms of discrete states with positive integer multiplicities. I will present constructions of modular-invariant torus partition functions with a unique vacuum and a large primary gap, for every sufficiently large real central charge $c_L=c_R=c$. The resulting spectra include gaps exceeding $c/12$ by an amount of order $c$, as well as gaps $\\Delta_1=(c-1)/12+\\delta$ for any fixed $\\delta\\geq 0$.\n\nFor the latter family, the spectral entropy matches the perturbative BTZ prediction through every fixed finite order in $1/c$, holding $E/c>0$ fixed and applying the same fixed energy smoothing on both sides. This agreement extends to energies where the BTZ saddle is canonically subdominant. Different discrete spectra can share the same perturbative entropy expansion, leaving microscopic information undetermined. I will discuss the implications for pure AdS₃ gravity and the additional consistency conditions required for a full CFT realization.\n\nBased on joint work with Reiko Liu and Wen-Jie Ma."
         },
         {
           "time": "16:15–17:00",
